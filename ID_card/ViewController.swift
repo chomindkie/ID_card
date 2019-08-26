@@ -21,14 +21,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var labelNode = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBlack")
     //count for setting barcode_value
     var i = 0
-
-//    var processing = false
-//    let imgView: UIImageView = {
-//        let img = UIImageView()
-//        img.translatesAutoresizingMaskIntoConstraints = false
-//        return img
-//    }()
-
+    
+    //    var processing = false
+    //    let imgView: UIImageView = {
+    //        let img = UIImageView()
+    //        img.translatesAutoresizingMaskIntoConstraints = false
+    //        return img
+    //    }()
     let textView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -40,11 +39,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-//        label.center = CGPoint(x: 160, y: 285)
-//        label.textAlignment = .center
-//        label.text = barcode_value
-//        self.view.addSubview(label)
+        //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        //        label.center = CGPoint(x: 160, y: 285)
+        //        label.textAlignment = .center
+        //        label.text = barcode_value
+        //        self.view.addSubview(label)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -70,17 +69,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         sceneView.session.run(configuration)
         sceneView.session.delegate = self
         
-//        self.view.addSubview(imgView)
-//        imgView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-//        imgView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-//        imgView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-//        imgView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        //        self.view.addSubview(imgView)
+        //        imgView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        //        imgView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //        imgView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        //        imgView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         
-//        self.view.addSubview(textView)
-//        textView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-//        textView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-//        textView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-//        textView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        //        self.view.addSubview(textView)
+        //        textView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        //        textView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //        textView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        //        textView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         
     }
     
@@ -96,42 +95,41 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         // if the anchor is not of type ARImageAnchor (which means image is not detected), just return
-        guard let imageAnchor = anchor as? ARImageAnchor, let fileUrlString = Bundle.main.path(forResource: "barcode", ofType: "mp4") else {return}
+        guard let imageAnchor = anchor as? ARImageAnchor else { return }
         //find our video file
         
-//        let videoItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
-//
-//        let player = AVPlayer(playerItem: videoItem)
-//        //initialize video node with avplayer
-//        let videoNode = SKVideoNode(avPlayer: player)
-
-//        player.play()
-//        // add observer when our player.currentItem finishes player, then start playing from the beginning
-//        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (notification) in
-//            player.seek(to: CMTime.zero)
-//            player.play()
-//            print("------------------------------------------")
-//            print("Looping Video")
-//        }
+        //        let videoItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
+        //
+        //        let player = AVPlayer(playerItem: videoItem)
+        //        //initialize video node with avplayer
+        //        let videoNode = SKVideoNode(avPlayer: player)
+        //        player.play()
+        //        // add observer when our player.currentItem finishes player, then start playing from the beginning
+        //        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (notification) in
+        //            player.seek(to: CMTime.zero)
+        //            player.play()
+        //            print("------------------------------------------")
+        //            print("Looping Video")
+        //        }
         
         // set the size (just a rough one will do)
-//        let videoScene = SKScene(size: CGSize(width: 480, height: 360))
-//        // center our video to the size of our video scene
-//        videoNode.position = CGPoint(x: videoScene.size.width / 2, y: videoScene.size.height / 2)
-//        // invert our video so it does not look upside down
-//        videoNode.yScale = -1.0
-//        // add the video to our scene
-//        videoScene.addChild(videoNode)
-//        // create a plan that has the same real world height and width as our detected image
-//        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-//        // set the first materials content to be our video scene
-//        plane.firstMaterial?.diffuse.contents = videoScene
-//        // create a node out of the plane
-//        let planeNode = SCNNode(geometry: plane)
-//        // since the created node will be vertical, rotate it along the x axis to have it be horizontal or parallel to our detected image
-//        planeNode.eulerAngles.x = -Float.pi / 2
-//        // finally add the plane node (which contains the video node) to the added node
-//        node.addChildNode(planeNode)
+        //        let videoScene = SKScene(size: CGSize(width: 480, height: 360))
+        //        // center our video to the size of our video scene
+        //        videoNode.position = CGPoint(x: videoScene.size.width / 2, y: videoScene.size.height / 2)
+        //        // invert our video so it does not look upside down
+        //        videoNode.yScale = -1.0
+        //        // add the video to our scene
+        //        videoScene.addChild(videoNode)
+        //        // create a plan that has the same real world height and width as our detected image
+        //        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+        //        // set the first materials content to be our video scene
+        //        plane.firstMaterial?.diffuse.contents = videoScene
+        //        // create a node out of the plane
+        //        let planeNode = SCNNode(geometry: plane)
+        //        // since the created node will be vertical, rotate it along the x axis to have it be horizontal or parallel to our detected image
+        //        planeNode.eulerAngles.x = -Float.pi / 2
+        //        // finally add the plane node (which contains the video node) to the added node
+        //        node.addChildNode(planeNode)
         
         
         //text
@@ -164,7 +162,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         plan2node.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
         plan2node.eulerAngles.x = -Float.pi / 2
         node.addChildNode(plan2node)
-   
+        
     }
     
     
@@ -172,11 +170,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
         let image = CIImage(cvPixelBuffer: frame.capturedImage)
-//      imgView.image = UIImage(ciImage: image)
-//        textView.text = barcode_value
-//        textView.textAlignment = .center
-//        textView.center = CGPoint(x: 160, y: 284)
-//        textView.font = UIFont.systemFont(ofSize: 30)
+        //      imgView.image = UIImage(ciImage: image)
+        //        textView.text = barcode_value
+        //        textView.textAlignment = .center
+        //        textView.center = CGPoint(x: 160, y: 284)
+        //        textView.font = UIFont.systemFont(ofSize: 30)
         
         labelNode.text = barcode_value
         
@@ -186,10 +184,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         let barcodeRequest = VNDetectBarcodesRequest(completionHandler: { request, error in
             print("+++++++++++")
             
-        guard let results = request.results else {  print("!!!!!!!!!!")
+            guard let results = request.results else {  print("!!!!!!!!!!")
                 return }
-
-//            // Loopm through the found results
+            
+            //            // Loopm through the found results
             for result in results {
                 // Cast the result to a barcode-observation
                 if let barcode = result as? VNBarcodeObservation {
@@ -203,7 +201,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                     
                     if let desc = barcode.barcodeDescriptor as? CIQRCodeDescriptor {
                         let content = String(data: desc.errorCorrectedPayload, encoding: .utf8)
-
+                        
                         // FIXME: This currently returns nil. I did not find any docs on how to encode the data properly so far.
                         print("Payload: \(String(describing: content))")
                         print("Error-Correction-Level: \(desc.errorCorrectionLevel)")
@@ -212,39 +210,39 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 }
             }
         })
-////        barcodeRequest.symbologies = [VNBarcodeSymbology.Code39]
-//        // Create an image handler and use the CGImage your UIImage instance.
-//        //test
-////        guard let image = UIImage(named: "test35")!.cgImage else {
-////            print("image fails")
-////            return }
+        ////        barcodeRequest.symbologies = [VNBarcodeSymbology.Code39]
+        //        // Create an image handler and use the CGImage your UIImage instance.
+        //        //test
+        ////        guard let image = UIImage(named: "test35")!.cgImage else {
+        ////            print("image fails")
+        ////            return }
         let handler = VNImageRequestHandler(ciImage: image, options: [:])
-
+        
         // Perform the barcode-request. This will call the completion-handler of the barcode-request.
         guard let _ = try? handler.perform([barcodeRequest]) else {
             return print("Could not perform barcode-request!")
         }
-      
-//
-//                let source: ZXLuminanceSource = ZXCGImageLuminanceSource(cgImage: image.cgImage)
-//                let binazer = ZXHybridBinarizer(source: source)
-//                let bitmap = ZXBinaryBitmap(binarizer: binazer)
-//
-//        //        var error: NSError?
-//
-//                let hints = ZXDecodeHints()
-//                let reader = ZXMultiFormatReader()
-//                // 1) you missed the name of the method, "decode", and
-//                // 2) use optional binding to make sure you get a value
-//                do{
-//                    if let result: ZXResult = try reader.decode(bitmap, hints: hints){
-//                        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-//                        print(result.text!)
-//                        }
-//                } catch {
-//                    print("**********************************")
-////                    print(error)
-//                }
+        
+        //
+        //                let source: ZXLuminanceSource = ZXCGImageLuminanceSource(cgImage: image.cgImage)
+        //                let binazer = ZXHybridBinarizer(source: source)
+        //                let bitmap = ZXBinaryBitmap(binarizer: binazer)
+        //
+        //        //        var error: NSError?
+        //
+        //                let hints = ZXDecodeHints()
+        //                let reader = ZXMultiFormatReader()
+        //                // 1) you missed the name of the method, "decode", and
+        //                // 2) use optional binding to make sure you get a value
+        //                do{
+        //                    if let result: ZXResult = try reader.decode(bitmap, hints: hints){
+        //                        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        //                        print(result.text!)
+        //                        }
+        //                } catch {
+        //                    print("**********************************")
+        ////                    print(error)
+        //                }
         print ("Hello")
         print(self.i)
         if self.i == 100 {
