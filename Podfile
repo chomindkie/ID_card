@@ -7,6 +7,8 @@ target 'ID_card' do
 
   # Pods for ID_card
   pod 'ZXingObjC', '~> 3.6.4'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
 
 
 end
