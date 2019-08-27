@@ -219,39 +219,25 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
       .throttle(framePerSeconds, scheduler: MainScheduler.instance)
       .subscribe(onNext: { (frame) in
         print("frame coming")
-        let ciImage = CIImage(cvPixelBuffer: frame.capturedImage)
-        let image = UIImage(ciImage: ciImage)
-//        guard let detector = self.detector else {
-//          return
-//        }
-//        guard let barcode = detector.features(in: image, options: nil) else {
-//          return
-//        }
-//
-//        barcode.forEach({ (feature) in
-//          if let barcodeFeature = feature as? GMVBarcodeFeature {
-//            print(barcodeFeature.displayValue)
-//          }
-//        })
-        
-//        guard let gmvTextDetector = GMVDetector(ofType: GMVDetectorTypeText, options: nil),
-//          let gmvQRDetector = GMVDetector(ofType: GMVDetectorTypeBarcode,
-//                                          options: [GMVDetectorBarcodeFormats: GMVDetectorBarcodeFormat.qrCode.rawValue]),
-//          let textAndQrCameraOutput = GMVMultiDetectorDataOutput(detectors: [gmvTextDetector, gmvQRDetector]),
-//          session.canAddOutput(textAndQrCameraOutput) else {
-//            throw CardScannerError.initializeFailed
-//        }
-//
-//        print("frame coming")
-//        let image = CIImage(cvPixelBuffer: frame.capturedImage)
-//        let handler = VNImageRequestHandler(ciImage: image, options: [:])
-//        guard let barcodeRequest = self.barcodeRequest else {
-//          print("requet not initialize")
-//          return
-//        }
-//        guard let _ = try? handler.perform([barcodeRequest]) else {
-//          return print("Could not perform barcode-request!")
-//        }
+        let pixelBuffer = frame.capturedImage
+        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let tempContext = CIContext(options: nil)
+        guard let videoImage = tempContext.createCGImage(ciImage, from: CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer) , height: CVPixelBufferGetHeight(pixelBuffer))) else {
+          return
+        }
+        let image = UIImage(cgImage: videoImage)
+        guard let detector = self.detector else {
+          return
+        }
+        guard let barcode = detector.features(in: image, options: nil) else {
+          return
+        }
+
+        barcode.forEach({ (feature) in
+          if let barcodeFeature = feature as? GMVBarcodeFeature {
+            print("bar code",barcodeFeature.displayValue)
+          }
+        })
 
     })
   }
