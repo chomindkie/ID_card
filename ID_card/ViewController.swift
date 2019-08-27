@@ -256,6 +256,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     })
   }
   
+    func cropimage(barcode: VNBarcodeObservation, image: CIImage) -> CIImage {
+        let percentage: CGFloat = 0.6
+        
+        let width = barcode.boundingBox.width * CGFloat(image.extent.size.width)
+        let height = barcode.boundingBox.height * CGFloat(image.extent.size.height)
+        let x = barcode.boundingBox.origin.x * CGFloat(image.extent.size.width)
+        let y = barcode.boundingBox.origin.y * CGFloat(image.extent.size.height)
+        let rect = CGRect(x: x, y: y, width: width, height: height)
+        
+        let increasedRect = rect.insetBy(dx: width * -percentage, dy: height * -percentage)
+        return image.cropped(to: increasedRect)
+    }
   
   func session(_ session: ARSession, didUpdate frame: ARFrame) {
     self.ciImageRelay.accept(frame)

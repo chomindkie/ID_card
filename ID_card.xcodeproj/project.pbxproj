@@ -15,6 +15,9 @@
 		0FE1491B230E2639003E0704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE1491A230E2639003E0704 /* Assets.xcassets */; };
 		0FE1491E230E2639003E0704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE1491C230E2639003E0704 /* LaunchScreen.storyboard */; };
 		0FE14926230E26A0003E0704 /* black.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0FE14925230E269F003E0704 /* black.mp4 */; };
+		0FE612BF2314F22000DB4726 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE612BE2314F22000DB4726 /* RxSwift.framework */; };
+		0FE612C12314F22700DB4726 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE612C02314F22700DB4726 /* RxCocoa.framework */; };
+		0FE612C32314F22B00DB4726 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE612C22314F22B00DB4726 /* GoogleToolboxForMac.framework */; };
 		0FFCDE81230FBEB70036FD59 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FFCDE80230FBEB70036FD59 /* frame.png */; };
 		ACEF77007674A0015A7AFEC0 /* Pods_ID_card.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7EB5EB3B4FB59F65CB5DCF /* Pods_ID_card.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +33,9 @@
 		0FE1491D230E2639003E0704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FE1491F230E2639003E0704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE14925230E269F003E0704 /* black.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = black.mp4; sourceTree = "<group>"; };
+		0FE612BE2314F22000DB4726 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FE612C02314F22700DB4726 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FE612C22314F22B00DB4726 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFCDE80230FBEB70036FD59 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		47ECA4A6BDC1DB66856F946C /* Pods-ID_card.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ID_card.debug.xcconfig"; path = "Target Support Files/Pods-ID_card/Pods-ID_card.debug.xcconfig"; sourceTree = "<group>"; };
 		5C7EB5EB3B4FB59F65CB5DCF /* Pods_ID_card.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ID_card.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE612C32314F22B00DB4726 /* GoogleToolboxForMac.framework in Frameworks */,
+				0FE612C12314F22700DB4726 /* RxCocoa.framework in Frameworks */,
+				0FE612BF2314F22000DB4726 /* RxSwift.framework in Frameworks */,
 				ACEF77007674A0015A7AFEC0 /* Pods_ID_card.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +95,9 @@
 		112784519099C69CC86F344A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FE612C22314F22B00DB4726 /* GoogleToolboxForMac.framework */,
+				0FE612C02314F22700DB4726 /* RxCocoa.framework */,
+				0FE612BE2314F22000DB4726 /* RxSwift.framework */,
 				5C7EB5EB3B4FB59F65CB5DCF /* Pods_ID_card.framework */,
 			);
 			name = Frameworks;
@@ -385,14 +397,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2CXQAZL4J;
+				DEVELOPMENT_TEAM = 6D29GP635V;
 				INFOPLIST_FILE = ID_card/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inno.ID-cardtest4";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inno.ID-cardtest5";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -407,14 +419,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2CXQAZL4J;
+				DEVELOPMENT_TEAM = 6D29GP635V;
 				INFOPLIST_FILE = ID_card/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inno.ID-cardtest4";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inno.ID-cardtest5";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
