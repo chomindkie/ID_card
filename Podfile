@@ -9,6 +9,7 @@ target 'ID_card' do
   pod 'ZXingObjC', '~> 3.6.4'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
+  pod 'GoogleMobileVision'
 
 
 end
